@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import Snow from './components/Snow';
 import Santa from './components/Santa';
 import GiftBox from './components/GiftBox';
+import MusicPlayer from './components/MusicPlayer';
 import { generateGiftMessages } from './services/geminiService';
 import { GiftMessage, AppState, Language } from './types';
 
@@ -87,11 +88,12 @@ const App: React.FC = () => {
     <div className="min-h-screen w-full bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white overflow-x-hidden font-sans selection:bg-red-500 selection:text-white pb-20 relative">
       <Snow />
 
-      {/* Language Switcher */}
-      <div className="absolute top-4 right-4 z-50">
+      {/* Top Right Controls */}
+      <div className="absolute top-4 right-4 z-50 flex items-center gap-3">
+        <MusicPlayer />
         <button 
           onClick={toggleLanguage}
-          className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-full text-sm font-bold hover:bg-white/20 transition-colors"
+          className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-2 rounded-full text-sm font-bold hover:bg-white/20 transition-colors"
         >
           {language === 'en' ? '中文' : 'English'}
         </button>
